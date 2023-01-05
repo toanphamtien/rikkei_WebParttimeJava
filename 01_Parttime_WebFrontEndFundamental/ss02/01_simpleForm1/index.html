@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+</head>
+<body>
+    <form action="https://google.com" method="get" class="wufoo">
+        <h2>Order Form</h2>
+
+        <p>What would you like to buy?</p>
+        <select name="menu" id="menu">
+            <option value="a">A</option>
+            <option value="b">B (+ 0.5$)</option>
+            <option value="c">C (+ 1.0$)</option>
+        </select>
+
+        <p>How many would you like to order?</p>
+        <input type="radio" name="order">1 - 10$<br>
+        <input type="radio" name="order">2 - 20$<br>
+        <input type="radio" name="order">3 - 25$<br>
+
+        <p>Name <span style="color: red;">*</span></p>
+        <input type="text" name="fistName" placeholder="FirstName" size="16">
+        <input type="text" name="lastName" placeholder="LastName" size="16"><br>
+
+        <p>Email</p>
+        <input type="email" name="email" placeholder="example@gmail.com" size="36"><br>
+
+        <p>Phone Number</p>
+        <input type="number" name="phone1" min="0" max="9999"> -
+        <input type="number" name="phone2" min="0" max="9999"> -
+        <input type="number" name="phone2" min="0" max="9999"><br>
+
+        <br>
+        <input type="submit" value="Submit">
+        <!-- 
+            dung type submit khac gi voi su dung button
+            <p><input type = "button" name="btSubmit" value="Submit"/></p>
+         -->
+
+    </form>
+</body>
+
+<style>
+    .wufoo{
+        font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma,
+                    sans-serif;
+    }
+</style>
+</html>
