@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Register</title>
+</head>
+
+<style>
+    table{
+        width: auto;
+        margin: auto;
+        background-color: antiquewhite;
+        padding: 10px;
+    }
+
+    td{
+        padding-top: 5px;
+    }
+</style>
+
+<body>
+    <form action="#">
+        <table>
+            <tr>
+                <td colspan="3" style="background-color: rgb(103, 247, 203); font-size: larger; font-weight: bold; color: blue;">
+                    DANG KY HOC VIEN
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width: 20%; color: blue;">
+                    <label for="name">Ho va Ten</label>
+                </td>
+                <td style="width: 60%;">
+                    <input type="text" name="name" placeholder="Nguyen Van A" size="32">
+                </td>
+                <td style="width: 20%;"></td>
+            </tr>
+
+            <tr>
+                <td style="color: blue;">
+                    <label for="birthDay">Ngay Sinh</label>
+                </td>
+                <td>
+                    <input type="date" name="birthDay" placeholder="dd/mm/yyyy">
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td style="color: blue;">
+                    <label for="sex">Gioi tinh</label>
+                </td>
+                <td>
+                    <input type="radio" name="sex">Nam
+                    <input type="radio" name="sex">Nu
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td style="color: blue;">
+                    <label for="address">Dia chi</label>
+                </td>
+                <td>
+                    <textarea name="address" cols="32" rows="3"></textarea>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td style="color: blue;">
+                    <label for="class">Lop</label>
+                </td>
+                <td>
+                    <select name="class">
+                        <option value="">--Chon lop--</option>
+                        <option value="1">Lop 1</option>
+                        <option value="2">Lop 2</option>
+                        <option value="3">Lop 3</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td style="color: blue;">
+                    <label for="email">Email</label>
+                </td>
+                <td>
+                    <input type="email" placeholder="example@gmail.com">
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td style="color: blue;">
+                    <label for="phone">Dien thoai</label>
+                </td>
+                <td>
+                    <input type="tel" name="phone">
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Dang Ky">
+                    <input type="reset" value="Nhap Lai">
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
