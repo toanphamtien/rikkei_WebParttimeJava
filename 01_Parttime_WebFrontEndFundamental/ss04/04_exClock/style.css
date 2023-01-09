@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(32, 32, 32);
+}
+
+.clock {
+    width: 280px;
+    height: 280px;
+    border: 18px solid rgb(170, 170, 170);
+    border-radius: 50%;
+    margin: 200px auto;
+    position: relative;
+    box-shadow: inset 0 5px 25px rgb(22, 22, 22), 0 5px 25px rgb(22, 22, 22);
+}
+
+.clock::after {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgb(105, 105, 105);
+    position: absolute;
+    left: calc(50% - 9px);
+    top: calc(50% - 9px);
+    box-shadow: 0 2px 4px rgb(22, 22, 22);
+}
+
+.clock div {
+    position: absolute;
+}
+
+.second {
+    width: 100%;
+    height: 100%;
+    animation: sec 600ms steps(60, end) infinite;
+}
+
+.second::after {
+    content: "";
+    width: 4px;
+    height: 130px;
+    border-radius: 2px;
+    background-color: darkred;
+    position: absolute;
+    left: calc(50% - 2px);
+    top: calc(50% - 110px);
+    box-shadow: 1px 2px 2px rgb(22, 22, 22);;
+}
+
+.minute {
+    width: 100%;
+    height: 100%;
+    /* transform: rotate(120deg); */
+    animation: sec 36s steps(60, end) infinite;
+}
+
+.minute::after {
+    content: "";
+    width: 8px;
+    height: 90px;
+    border-radius: 4px;
+    background-color: rgb(170, 170, 170);
+    position: absolute;
+    left: calc(50% - 4px);
+    top: 50%;
+    box-shadow: 2px 4px 4px rgb(22, 22, 22);;
+}
+
+.hour {
+    width: 100%;
+    height: 100%;
+    /* transform: rotate(-120deg); */
+    animation: sec 360s steps(60, end) infinite;
+}
+
+.hour::after {
+    content: "";
+    width: 8px;
+    height: 60px;
+    border-radius: 4px;
+    background-color: rgb(170, 170, 170);
+    position: absolute;
+    left: calc(50% - 4px);
+    top: 50%;
+    box-shadow: 2px 4px 4px rgb(22, 22, 22);;
+}
+
+@keyframes sec {
+    to {
+        transform: rotate(306deg);
+    }
+}
