@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.currency {
+    padding: 10px 10px 5px 10px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount {
+    padding: 5px 10px;
+}
+
+.amount input {
+    width: 200px;
+}
+
+#result {
+    padding: 5px 10px;
+    color: blue;
+}
+
