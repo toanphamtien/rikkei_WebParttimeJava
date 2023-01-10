@@ -26,5 +26,5 @@ function convert(){
 
     // cal result
     result = amount * rate[fromCurrencyIdx][toCurrencyIdx];
-    document.getElementById("result").innerHTML = "Result: " + result;
+    document.getElementById("result").innerHTML = "Result: " + result + " " + toCurrency;
 }
