@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function bmi(){
+            let height = (parseInt(prompt("Nhap chieu cao (cm):")))/100;
+            let weight = parseFloat(prompt("Nhap Can Nang (kg):"));
+            
+            let bmi = (weight/height/height).toFixed(1);
+
+            if (bmi < 18.5) alert("Ban qua gay");
+            else if (bmi < 25) alert("Ban co thanh hinh can doi");
+            else if (bmi < 30) alert("Ban hoi beo");
+            else alert("Ban qua beo!!");
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="bmi();">Kiem tra chi so can nang co the</button>
+</body>
+</html>
