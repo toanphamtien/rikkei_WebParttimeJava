@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let img1, img2, img3;
+
+        window.onload = function () {
+            changeImg("img1");
+            changeImg("img2");
+            changeImg("img3");
+        }
+
+        function changeImg(id) {
+            let imgArr = ['cat1', 'cat2', 'cat3',
+                'gau1', 'gau2', 'gau3',
+                'khi1', 'khi2', 'khi3'];
+            let imgObj = document.getElementById(id);
+            let img = Math.floor(Math.random() * imgArr.length);
+            imgObj.src = "img/" + imgArr[img] + ".jpg";
+
+            if (id == "img1") img1 = imgArr[img];
+            else if (id == "img2") img2 = imgArr[img];
+            else img3 = imgArr[img];
+
+            if ((img1 == "cat1" && img2 == "cat2" && img3 == "cat3") ||
+                (img1 == "gau1" && img2 == "gau2" && img3 == "gau3") ||
+                (img1 == "cat1" && img2 == "cat2" && img3 == "cat3"))
+            {
+                // win
+                document.getElementById("win").style = "padding: 20px; background-color: gold; width: 304px;";
+            }
+            else {
+                document.getElementById("win").style = "padding: 20px; background-color: azure; width: 304px;";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="win">
+        <img src="" id="img1" onclick="changeImg(this.id)" alt="" width="304" height="79"><br>
+        <img src="" id="img2" onclick="changeImg(this.id)" alt="" width="304" height="79"><br>
+        <img src="" id="img3" onclick="changeImg(this.id)" alt="" width="304" height="79"><br>
+    </div>
+</body>
+
+</html>
