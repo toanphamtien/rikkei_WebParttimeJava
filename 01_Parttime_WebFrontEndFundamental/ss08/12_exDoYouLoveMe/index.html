@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1 {
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            color: darkred;
+        }
+
+        #yesBtn {
+            position: absolute;
+            top: 260px;
+            left: 260px;
+        }
+
+        #noBtn {
+            position: absolute;
+            top: 260px;
+            left: 360px;
+        }
+    </style>
+
+    <script>
+        function yesBtn() {
+            alert("I Love You too <3");
+        }
+
+        function noBtn() {
+            let x = Math.round(Math.random() * window.innerWidth);
+            let y = Math.round(Math.random() * window.innerHeight);
+            document.getElementById("noBtn").style.left = x + 'px';
+            document.getElementById("noBtn").style.top = y + 'px';
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Do You Love Me?</h1>
+    <button type="button" id="yesBtn" onclick="yesBtn()">Yes</button>
+    <button type="button" id="noBtn" onmouseover="noBtn()">No</button>
+</body>
+
+</html>
