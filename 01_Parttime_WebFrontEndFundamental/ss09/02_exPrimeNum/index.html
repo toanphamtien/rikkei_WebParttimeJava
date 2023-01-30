@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function primeNum(){
+            let n = prompt("Nhap so luong so nguyen to muon in", 0);
+            let i = 0;
+            let j = 2;
+            let isPrime = false;
+            while(true){
+                isPrime = true;
+                if (n <= 0) break;
+                for (i = 2; i <= Math.sqrt(j); i++){
+                    if (j%i == 0) {
+                        j++;
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (!isPrime) continue;
+                
+                document.writeln(j.toString());
+                document.writeln("<br>");
+                j++;
+                n--;
+            }
+        }
+
+        window.onload = function(){
+            primeNum();
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
