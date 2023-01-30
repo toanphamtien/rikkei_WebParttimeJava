@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let good = false;
+        let fast = false;
+        let cheap = false;
+        function changeGood() {
+            good = true;
+            changeValue();
+        }
+        function changeFast() {
+            fast = true;
+            changeValue();
+        }
+        function changeCheap() {
+            cheap = true;
+            changeValue();
+        }
+        function changeValue() {
+            if (document.getElementById("good").value === "1" &&
+                document.getElementById("fast").value === "1" &&
+                document.getElementById("cheap").value === "1") {
+                if (good === true) document.getElementById("fast").value = 0;
+                if (fast === true) document.getElementById("cheap").value = 0;
+                if (cheap === true) document.getElementById("good").value = 0;
+            }
+            // clear var
+            good = false;
+            fast = false;
+            cheap = false;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>Good</p>
+        <input type="range" id="good" min="0" max="1" class="slider" onclick="changeGood()">
+    </div>
+    <div>
+        <p>Fast</p>
+        <input type="range" id="fast" min="0" max="1" class="slider" onclick="changeFast()">
+    </div>
+    <div>
+        <p>Cheap</p>
+        <input type="range" id="cheap" min="0" max="1" class="slider" onclick="changeCheap()">
+    </div>
+</body>
+
+</html>
