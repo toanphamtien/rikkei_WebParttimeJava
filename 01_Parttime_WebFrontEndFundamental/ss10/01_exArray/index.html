@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function bai1(){
+            let myColor = ["Red", "Green", "White", "Black"];
+            alert(myColor.join(","));
+        }
+
+        function bai2(){
+            var num = prompt("Nhap So:");
+            num = num.toString();
+            let res = [num[0]];
+
+            for(let i = 1; i < num.length; i++){
+                if((num[i - 1]%2 === 0) && (num[i]%2==0)){
+                    res.push("-", num[i]);
+                }
+                else{
+                    res.push(num[i]);
+                }
+            }
+
+            alert(res.join(""));
+        }
+
+        function bai3(){
+            let str = prompt("Nhap Chuoi:");
+            let tmp = "";
+            let test = str;
+            let res = [];
+
+            for(let i = 0; i < str.length; i++){
+                if (tmp === str[i]){
+                    res.push(str[i].toLowerCase());
+                }else{
+                    res.push(str[i].toUpperCase());
+                }
+            }
+
+            alert("in: " + test + "\nout: " + res.join(""));
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="bai1()">Bai 1</button>
+    <button onclick="bai2()">Bai 2</button>
+    <button onclick="bai3()">Bai 3</button>
+</body>
+
+</html>
