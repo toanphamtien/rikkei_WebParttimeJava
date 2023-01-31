@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            padding: 2px;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        tr {
+            height: 50px;
+        }
+
+        td {
+            width: 50px;
+            font-size: 30px;
+        }
+
+        td:hover {
+            background-color: aquamarine;
+        }
+    </style>
+
+    <script>
+        let map = [["-", "-", "-"],
+        ["-", "-", "-"],
+        ["-", "-", "-"]];
+
+        let person = 1; //1:person 1, 2:person 2, other:invalid
+
+        function evClick(id) {
+            let idx = id.split("-");
+
+            if (map[idx[0] - 1][idx[1] - 1] === "-") {
+                if(person === 1) {
+                    document.getElementById(id).innerHTML = "o";
+                    map[idx[0] - 1][idx[1] - 1] = "o";
+                    person = 2;
+                }
+                else{
+                    document.getElementById(id).innerHTML = "x";
+                    map[idx[0] - 1][idx[1] - 1] = "x";
+                    person = 1;
+                }
+            }else{
+                return;
+            }
+
+            checkResult();
+        }
+
+        function checkResult(){
+            if(map[0][0] === map[0][1] && map[0][0] === map[0][2] && map[0][0] != "-"){
+                if(map[0][0] === "o") alert("o win");
+                else alert("x win");
+            }
+            if(map[1][0] === map[1][1] && map[1][0] === map[1][2] && map[1][0] != "-"){
+                if(map[1][0] === "o") alert("o win");
+                else alert("x win");
+            }
+            if(map[2][0] === map[2][1] && map[2][0] === map[2][2] && map[2][0] != "-"){
+                if(map[2][0] === "o") alert("o win");
+                else alert("x win");
+            }
+            if(map[0][0] === map[1][0] && map[0][0] === map[2][0] && map[0][0] != "-"){
+                if(map[0][0] === "o") alert("o win");
+                else alert("x win");
+            }
+            if(map[0][1] === map[1][1] && map[0][1] === map[2][1] && map[0][1] != "-"){
+                if(map[0][1] === "o") alert("o win");
+                else alert("x win");
+            }
+            if(map[0][2] === map[1][2] && map[0][2] === map[2][2] && map[0][2] != "-"){
+                if(map[0][2] === "o") alert("o win");
+                else alert("x win");
+            }
+            if(map[0][0] === map[1][1] && map[0][0] === map[2][2] && map[0][0] != "-"){
+                if(map[0][0] === "o") alert("o win");
+                else alert("x win");
+            }
+            if(map[2][0] === map[1][1] && map[0][0] === map[0][2] && map[2][0] != "-"){
+                if(map[2][0] === "o") alert("o win");
+                else alert("x win");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Tic Tac Toe</h2>
+    <table>
+        <tr>
+            <td id="1-1" onclick="evClick(id)"></td>
+            <td id="1-2" onclick="evClick(id)"></td>
+            <td id="1-3" onclick="evClick(id)"></td>
+        </tr>
+        <tr>
+            <td id="2-1" onclick="evClick(id)"></td>
+            <td id="2-2" onclick="evClick(id)"></td>
+            <td id="2-3" onclick="evClick(id)"></td>
+        </tr>
+        <tr>
+            <td id="3-1" onclick="evClick(id)"></td>
+            <td id="3-2" onclick="evClick(id)"></td>
+            <td id="3-3" onclick="evClick(id)"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
