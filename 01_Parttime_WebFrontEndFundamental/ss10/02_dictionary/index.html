@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function search(){
+            let arrEng = ["car", "airplane", "train", "bus"];
+            let arrVi  = ["Xe o to", "May bay", "Tau Hoa", "Xe buyt"];
+            let i = 0;
+            let str = document.getElementById("eng").value;
+
+            for(i = 0; i < arrEng.length; i++){
+                if(str === arrEng[i]){
+                    document.getElementById("res").innerHTML = "Nghia tieng Viet cua " + arrEng[i] + " la: " + arrVi[i]; 
+                    break;
+                }
+            }
+            if(i === arrEng.length){
+                document.getElementById("res").innerHTML = "Khong tim thay ket qua";
+            }
+
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form action="#" onsubmit="return search()">
+        <input type="text" name="eng" id="eng" placeholder="Nhap tu tieng Anh">
+        <button>Search</button>
+    </form>
+    <br>
+    <div id="res"></div>
+</body>
+</html>
