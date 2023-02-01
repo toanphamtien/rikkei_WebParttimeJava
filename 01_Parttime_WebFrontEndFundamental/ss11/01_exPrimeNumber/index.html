@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function isPrime(){
+            let input = prompt("Nhap so");
+            let num = parseInt(input);
+
+            if (input != num){
+                alert(input + " khong phai la so nguyen to");
+                return;
+            }
+
+            if (num < 2) {
+                alert(num + " khong phai la so nguyen to");
+                return;
+            }
+
+            if (num > 10000){
+                alert("so qua lon, khong thich kiem tra");
+                return;
+            }
+
+            for(let i = 2; i <= Math.sqrt(num); i++){
+                if (num % i == 0){
+                    alert(num + " khong phai la so nguyen to");
+                    return;
+                }
+            }
+
+            alert(num + " la so nguyen to");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="isPrime()">Kiem tra so nguyen to</button>
+</body>
+</html>
