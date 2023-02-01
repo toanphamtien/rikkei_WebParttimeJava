@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function feetToMeter(feet){
+            return (0.305 * feet).toFixed(3);
+        }
+
+        function meterToFeet(meter){
+            return (3.279 * meter).toFixed(3);
+        }
+
+        function testF2M(){
+            while(1){
+                let feet = prompt("Nhap so(feet): (!!!Nhap 'q' de thoat)");
+                if (feet == "q" ) break;
+
+                let res = feetToMeter(feet);
+                alert(feet + " feet = " + res + " meter");
+            }
+        }
+
+        function testM2F(){
+            while(1){
+                let meter = prompt("Nhap so(meter): (!!!Nhap 'q' de thoat)");
+                if (meter == "q" ) break;
+
+                let res = meterToFeet(meter);
+                alert(meter + " feet = " + res + " meter");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="testF2M()">test feet to meter</button>
+    <button onclick="testM2F()">test meter to feet</button>
+</body>
+</html>
