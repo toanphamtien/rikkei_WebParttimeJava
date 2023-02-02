@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        tr:nth-child(even) {
+            background-color: antiquewhite;
+        }
+    </style>
+
+    <script>
+        let arrProduct = [];
+
+        function addProduct() {
+            let product = document.getElementById("newProduct").value;
+            if (product == "") return;
+
+            arrProduct.unshift(product);
+
+            console.log("arrProduct: [" + arrProduct + "]");
+            showArrProduct();
+        }
+
+        function delProduct(id) {
+            let index = id.match(/[0-9]+/)[0];
+
+            arrProduct.splice(index, 1);
+
+            console.log("arrProduct: [" + arrProduct + "]");
+            showArrProduct();
+        }
+
+        function editProduct(id) {
+            let index = id.match(/[0-9]+/)[0];
+
+            let msg = "Ban muon sua " + arrProduct[index] + " thanh gi?"
+            let res = prompt(msg, "");
+
+            if (res == "") {
+                // nothing
+            }
+            else {
+                arrProduct[index] = res;
+            }
+
+            console.log("arrProduct: [" + arrProduct + "]");
+            showArrProduct();
+        }
+
+        function showArrProduct() {
+            let id = "productTable";
+
+            // clear Product Table
+            document.getElementById(id).innerHTML = '<tr><th>Product Name</th><th colspan="2">Action</th></tr>';
+
+            // show all product
+            for (let idx = 0; idx < arrProduct.length; idx++) {
+                document.getElementById(id).insertRow(1);
+
+                for (let cellIdx = 0; cellIdx < 3; cellIdx++) {
+                    document.getElementById(id).rows[1].insertCell(cellIdx);
+                }
+
+                let cellObj = document.getElementById(id).rows[1].cells;
+                let arrIdx = arrProduct.length - idx - 1;
+                cellObj[0].innerHTML = arrProduct[arrIdx];
+                cellObj[1].innerHTML = '<button id="del' + arrIdx + '" onclick="editProduct(id)">Edit</button>'
+                cellObj[2].innerHTML = '<button id="edit' + arrIdx + '" onclick="delProduct(id)">Delete</button>'
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Add New Product</h2>
+    <input type="text" id="newProduct" placeholder="New Product">
+    <button onclick="addProduct()">Add</button>
+    <br>
+    <h2>Display All Product</h2>
+    <table id="productTable">
+        <tr>
+            <th>Product Name</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </table>
+</body>
+
+</html>
