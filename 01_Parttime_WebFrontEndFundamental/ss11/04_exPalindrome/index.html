@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function test(){
+            let str = prompt("Nhap Chuoi can kiem tra","");
+            if (str == null) return;
+            if(isPalindrome(str)) alert(str + " la chuoi doi xung");
+            else alert(str + " khong phai la chuoi doi xung");
+        }
+
+        function isPalindrome(str){
+            if (str.length == 0) return false;
+            if (str.length == 1) return true;
+            if (str.length == 2){
+                if (str[0] == str[1]) return true;
+                else return false;
+            }
+            let firstChar = str.charAt(0);
+            let lastChar = str.charAt(str.length - 1);
+            console.log("first = " + firstChar + ", last = " + lastChar); 
+            if (firstChar != lastChar) return false;
+
+            let newStr = str.slice(1, str.length - 1);
+            console.log("newStr = " + newStr);
+            return isPalindrome(newStr);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="test()">Kiem tra chuoi doi xung</button>
+</body>
+</html>
