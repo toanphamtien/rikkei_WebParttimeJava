@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid black;">
+        Trinh duyet khong ho tro HTML Canvas.
+    </canvas>
+
+    <script>
+        function Rectangle(width = 0, height = 0) {
+            this.width = width;
+            this.height = height;
+            this.getRectanglePerimeter = function(){
+                return 2*(width+height);
+            }
+            this.getRectangleAcreage = function(){
+                return width*height;
+            }
+        }
+
+        function createRectangle(){
+            let x = 100;
+            let y = 100;
+            let msg = "";
+            let rec = new Rectangle(200, 300);
+
+            let myCanvas = document.getElementById("myCanvas");
+            let ctx = myCanvas.getContext("2d");
+            // Draw Rectangle
+            ctx.fillStyle = "#fa4b2a";
+            ctx.fillRect(x, y, rec.width, rec.height);
+            // Write Text
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "14px Arial";
+            msg = "Dien tich = " + rec.getRectangleAcreage();
+            ctx.fillText(msg, x+10, y+20);
+            msg = "Chu vi = " + rec.getRectanglePerimeter();
+            ctx.fillText(msg, x+10, y+40);
+        }
+
+        createRectangle();
+    </script>
+</body>
+</html>
