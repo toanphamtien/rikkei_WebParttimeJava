@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Temperature(doC = 0){
+            if (doC < -273.15) this.doC = -273.15;
+            else this.doC = doC;
+
+            this.convertCtoF = function(){
+                return (1.8 * this.doC + 32).toFixed(3);
+            }
+
+            this.convertCtoK = function(){
+                return (this.doC +273.15).toFixed(3);
+            }
+        }
+
+        test = new Temperature(25);
+        console.log("Do C = " + test.doC)
+        console.log("Do F = " + test.convertCtoF());
+        console.log("Do K = " + test.convertCtoK());
+    </script>
+</body>
+</html>
