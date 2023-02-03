@@ -1,0 +1,34 @@
+div{
+    text-align: center;
+    font-family: sans-serif;
+}
+table{
+    margin: auto;
+    border-collapse: collapse;
+}
+td{
+    border: 1px solid rgb(255, 255, 255);
+}
+#hour, #minute, #second {
+    width: 80px;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+#hour, #minute{
+    background-color: rgb(46, 184, 248);
+}
+#second{
+    background-color: rgb(233, 24, 121);
+}
+#hourLabel, #minuteLabel, #secondLabel{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+#hourLabel, #minuteLabel{
+    background-color: rgb(12, 133, 231);
+}
+#secondLabel{
+    background-color: rgb(143, 0, 55);
+}

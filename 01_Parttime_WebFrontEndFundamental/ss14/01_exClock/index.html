@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h2>Thời gian bây giờ là:</h2>
+        <table>
+            <tr>
+                <td id="hour">00</td>
+                <td id="minute">00</td>
+                <td id="second">00</td>
+            </tr>
+            <tr>
+                <td id="hourLabel">Giờ</td>
+                <td id="minuteLabel">Phút</td>
+                <td id="secondLabel">Giây</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function getTime(){
+            let time = new Date();
+
+            document.getElementById("hour").innerHTML = time.getHours();
+            document.getElementById("minute").innerHTML = time.getMinutes();
+            document.getElementById("second").innerHTML = time.getSeconds();
+        }
+
+        setInterval(getTime, 1000);
+    </script>
+</body>
+</html>
