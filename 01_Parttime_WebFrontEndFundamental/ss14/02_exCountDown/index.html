@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #timer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="timer">
+        <p id="time">00:00:00</p>
+        <div id="chickenContainer"></div>
+    </div>
+
+    <script>
+        const SCREEN_WIDTH = window.innerWidth - 100;
+        const SCREEN_HEIGHT = window.innerHeight - 100;
+        const MAX_SIZE = 200;
+        const MIN_SIZE = 50;
+
+        let timeLeft = 10 * 60; // 10 minutes
+        let timeChicken = 1;
+        let score = 0;
+
+        const updateTime = () => {
+            const timeDisplay = document.querySelector('#time');
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timeDisplay.innerHTML = `Time: ${minutes}:${seconds}<br>Score: ${score}`;
+        };
+
+        function createRandomChicken() {
+            const chickenContainer = document.getElementById("chickenContainer");
+            const chicken = document.createElement("div");
+            if (chickenContainer.innerHTML != "") {
+                return;
+            }
+
+            chicken.style.backgroundImage = "url('chicken.png')";
+            chicken.style.backgroundSize = "contain";
+            chicken.style.backgroundRepeat = "no-repeat";
+            chicken.style.objectFit = "contain";
+            chicken.style.position = "absolute";
+            chicken.style.left = `${50 + Math.random() * SCREEN_WIDTH}px`;
+            chicken.style.top = `${50 + Math.random() * SCREEN_HEIGHT}px`;
+            chicken.style.width = `${MIN_SIZE + Math.random() * MAX_SIZE}px`;
+            chicken.style.height = `${MIN_SIZE + Math.random() * MAX_SIZE}px`;
+
+
+            chicken.addEventListener("mouseover", function () {
+                chicken.style.border = "3px solid green";
+            });
+
+            chicken.addEventListener("mouseout", function () {
+                chicken.style.border = "none";
+            });
+
+            chicken.addEventListener("click", function () {
+                deleteChicken();
+                timeChicken = 0;
+                score = score + 10;
+            });
+
+            document.getElementById("chickenContainer").appendChild(chicken);
+        }
+
+        function deleteChicken() {
+            document.getElementById("chickenContainer").innerHTML = "";
+        }
+
+        setInterval(() => {
+            timeLeft--;
+            timeChicken--;
+            if (timeLeft < 0) {
+                clearInterval();
+            }
+            updateTime();
+            if (timeChicken < 0) {
+                createRandomChicken();
+                timeChicken = 10;
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
