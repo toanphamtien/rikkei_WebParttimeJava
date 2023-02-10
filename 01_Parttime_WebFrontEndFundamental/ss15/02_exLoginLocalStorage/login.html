@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 220px;
+            padding: 10px;
+            border: 1px solid rgb(114, 114, 114);
+            background-color: aliceblue;
+            font-family: sans-serif;
+            font-size: smaller;
+
+        }
+
+        label,
+        input {
+            width: 200px;
+            height: 24px;
+            margin: 5px;
+        }
+
+        button {
+            width: 208px;
+            margin: 5px;
+            border-color: cornflowerblue;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body onload="checkLocalStorage()">
+    <div id="main">
+        <form action="" method="get" onsubmit="return login()">
+            <h2>Login</h2>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" placeholder="Enter your email address" required><br>
+            <label for="pass">Password:</label><br>
+            <input type="password" id="pass" placeholder="Enter your password" required><br>
+            <button>Login</button>
+        </form>
+    </div>
+
+    <script>
+        const EMAIL = document.getElementById("email");
+        const PASS = document.getElementById("pass");
+
+        function checkLocalStorage(){
+            let temp = JSON.parse(localStorage.getItem("testLocalStorage"));
+            console.log(temp);
+            if (temp == null){
+                console.log("khong tim duoc data trong Local Storage");
+                return;
+            }
+            else{
+                console.log("lay thong tin tu Local Storage");
+                EMAIL.value = temp.email;
+                PASS.value = temp.pass;
+            }
+        }
+
+        function login() {
+            if (PASS.value != "" && EMAIL.value != "") {
+                alert("login");
+                localStorage.clear();
+            }
+        }
+    </script>
+</body>
+
+</html>

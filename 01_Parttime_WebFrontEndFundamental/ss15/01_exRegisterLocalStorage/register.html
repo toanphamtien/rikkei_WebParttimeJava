@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 220px;
+            padding: 10px;
+            border: 1px solid rgb(114, 114, 114);
+            background-color: aliceblue;
+            font-family: sans-serif;
+            font-size: smaller;
+
+        }
+
+        label,
+        input {
+            width: 200px;
+            height: 24px;
+            margin: 5px;
+        }
+
+        button {
+            width: 208px;
+            margin: 5px;
+            border-color: cornflowerblue;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <form action="" method="get" onsubmit="return register()">
+            <h2>Register</h2>
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" placeholder="Enter your email address" required><br>
+            <label for="pass">Password:</label><br>
+            <input type="password" id="pass" placeholder="Enter your password" required><br>
+            <label for="confirmPass">Confirm Password:</label><br>
+            <input type="password" id="confirmPass" onchange="checkpass()" placeholder="Enter your confirm password" required><br>
+            <button>Register</button>
+        </form>
+    </div>
+
+    <script>
+        const EMAIL = document.getElementById("email");
+        const PASS = document.getElementById("pass");
+        const CONFIRM = document.getElementById("confirmPass");
+
+        function checkpass() {
+            console.log(PASS.value)
+            if (PASS.value === CONFIRM.value) {
+                PASS.style.backgroundColor = "#ffffff"
+                CONFIRM.style.backgroundColor = "#ffffff"
+                return true;
+            }
+            else {
+                PASS.style.backgroundColor = "rgb(243, 172, 172)"
+                CONFIRM.style.backgroundColor = "rgb(243, 172, 172)"
+                return false;
+            }
+        }
+
+        function register() {
+            if (!checkpass()) return false;
+            let temp = {
+                email: EMAIL.value,
+                pass: PASS.value
+            }
+            localStorage.setItem("testLocalStorage", JSON.stringify(temp));
+            return true;
+        }
+    </script>
+</body>
+
+</html>
