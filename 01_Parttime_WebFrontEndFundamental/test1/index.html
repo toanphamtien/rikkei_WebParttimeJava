@@ -13,6 +13,7 @@
         td {
             border-collapse: collapse;
             border: 1px solid black;
+            text-align: center;
         }
 
         table {
@@ -36,6 +37,17 @@
         let inSearchStudent = document.querySelector("#searchStudent");
         let myTable = document.querySelector("#myTable");
         let student = [];
+
+        window.onload = () => {
+            if (window.localStorage.getItem("listStudent") == null){
+                console.log("Khong co list student trong local storage");
+                return;
+            }
+
+            student = JSON.parse(window.localStorage.getItem("listStudent"));
+            console.log(student);
+            showListStudent(student);
+        };
 
         function addStudent() {
             if (inAddStudent.value == "") {
@@ -139,6 +151,8 @@
                         </tr>`;
             }
             myTable.innerHTML = data;
+
+            window.localStorage.setItem("listStudent", JSON.stringify(student));
         }
     </script>
 </body>
