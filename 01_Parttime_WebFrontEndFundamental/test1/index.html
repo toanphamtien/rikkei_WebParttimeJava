@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 1</title>
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        table {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="addStudent" placeholder="Nhap ten Hoc Sinh">
+    <button id="btnAdd" onclick="addStudent()">Create</button><br><br>
+    <input type="text" id="searchStudent" placeholder="Nhap ten Hoc Sinh">
+    <button id="btnSearch" onclick="searchStudent()">Search</button><br>
+    <hr>
+    <h2>Danh Sach Hoc Sinh</h2>
+    <table id="myTable">
+    </table>
+
+    <script>
+        let inAddStudent = document.querySelector("#addStudent");
+        let inSearchStudent = document.querySelector("#searchStudent");
+        let myTable = document.querySelector("#myTable");
+        let student = [];
+
+        function addStudent() {
+            if (inAddStudent.value == "") {
+                alert("The name is required! Please try again!");
+                return;
+            }
+
+            for (let i = 0; i < student.length; i++) {
+                if (inAddStudent.value == student[i]) {
+                    alert("The name is existed! Please try again!");
+                    return;
+                }
+            }
+
+            student.push(inAddStudent.value);
+            console.log(student);
+            showListStudent(student);
+        }
+
+        function delStudent(index) {
+            if (confirm(`Delete Student: ${student[index]}`)) {
+                student.splice(index, 1);
+                alert("Delete Student success!")
+            }
+            else {
+                alert("Just Don't delete it!");
+            }
+            console.log(student);
+            showListStudent(student);
+        }
+
+        function editStudent(index) {
+            let nameStudent = prompt(`Edit Student ${student[index]} =>`, "");
+
+            if (nameStudent == null) return;
+            if (nameStudent == "") {
+                alert("The name is required! Please try again!");
+                return;
+            }
+
+            for (let i = 0; i < student.length; i++) {
+                if (nameStudent == student[i]) {
+                    alert("The name is existed! Please try again!");
+                    return;
+                }
+            }
+
+            student[index] = nameStudent;
+            console.log(student);
+            showListStudent(student);
+        }
+
+        function searchStudent(){
+            let searchListStudent = [];
+
+            if (inSearchStudent.value == "") {
+                alert("The name is required! Please try again!");
+                showListStudent(student);
+                return;
+            }
+
+            let strTmp1 = (inSearchStudent.value).toLowerCase();
+            console.log(strTmp1);
+
+            for (let i = 0; i < student.length; i++){
+                let strTmp2 = student[i].toLowerCase();
+
+                if (strTmp2.indexOf(strTmp1) != -1){
+                    searchListStudent.push(student[i]);
+                    console.log(searchListStudent);
+                }
+            }
+
+            if (searchListStudent.length == 0){
+                alert("Khong co du lieu");
+                return;
+            }
+
+            console.log(student);
+            console.log(searchListStudent);
+            showListStudent(searchListStudent);
+        }
+
+        function showListStudent(listStudent) {
+            let data = '<tr> \
+                            <th style="width: 10%;">STT</th> \
+                            <th style="width: 50%;">NAME</th> \
+                            <th style="width: 20%;">EDIT</th> \
+                            <th style="width: 20%;">DELETE</th> \
+                        </tr>';
+            // clear list table
+            myTable.innerHTML = "";
+
+            // update table
+            for (let i = 0; i < listStudent.length; i++) {
+                data += `<tr>
+                            <td>${i + 1}</td>
+                            <td>${listStudent[i]}</td>
+                            <td><button onclick="editStudent(${i})">Edit</button></td>
+                            <td><button onclick="delStudent(${i})">Delete</button></td>
+                        </tr>`;
+            }
+            myTable.innerHTML = data;
+        }
+    </script>
+</body>
+
+</html>
