@@ -17,11 +17,6 @@ let id = 0;
 
 let listStudents = [];
 
-listStudents.push(new Student(id, "Toan", 27, "Hai Phong"));
-listStudents.push(new Student(id, "ABC", 30, "Ha Noi"));
-
-console.log(listStudents);
-
 function showListStudents(list) {
     let data = `<tr>
                     <th>STT</th>
