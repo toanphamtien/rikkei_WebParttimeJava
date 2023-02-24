@@ -1,0 +1,63 @@
+form{
+    width: 300px;
+}
+input{
+    width: 292px;
+    margin-bottom: 10px;
+}
+
+hr {
+    margin: 10px 0px;
+}
+
+button{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: scale(0.9);
+}
+
+table, tr, td, th{
+    border: 1px solid #888;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+tr:first-child{
+    background-color: rgb(80, 229, 255);
+}
+
+tr:not(:first-child):hover {
+    background-color: rgb(165, 243, 248);
+}
+
+tr td:first-child {
+    width: 40px;
+}
+
+tr td:nth-child(2){
+    width: 40px;
+}
+
+tr td:nth-child(3){
+    width: 200px;
+}
+
+tr td:nth-child(4){
+    width: 50px;
+}
+
+tr td:nth-child(5){
+    width: 300px;
+}
+
+tr td:nth-child(6){
+    width: 80px;
+}
+
+tr td:last-child{
+    width: 100px;
+}
+

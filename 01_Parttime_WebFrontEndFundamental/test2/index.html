@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Manager</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>----------STUDENT MANAGER----------</h1>
+    <form action="#">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" placeholder="Please fill to create new Student..."><br>
+        <label for="age">Age</label><br>
+        <input type="number" id="age" min="0" placeholder="Please fill to create new Student..."><br>
+        <label for="address">Address</label><br>
+        <input type="text" id="address" placeholder="Please fill to create new Student..."><br>
+        <button id="btn-create" onclick="createStudent()">Create Student</button><br><hr>
+        <input type="text" id="search" placeholder="Please enter the name student to search...">
+        <button id="btn-search" onclick="searchStudent()">Search</button>
+        <button onclick="showAll()">Show All Student</button>
+    </form>
+    <hr>
+    <table id="my-table">
+    </table>
+</body>
+
+<script src="script.js"></script>
+
+</html>
