@@ -116,7 +116,7 @@ function editStudent(index) {
     let adrStudent = prompt(`Enter address to edit: ${listStudents[index].address} =>`, "");
     if (adrStudent == null) return;
     if (adrStudent == "") {
-        alert("The age is required! Please try again!");
+        alert("The address is required! Please try again!");
         return;
     }
 

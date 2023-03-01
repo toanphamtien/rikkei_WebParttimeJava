@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <script>
+        // Lưu thông tin đăng nhập vào Local Storage
+        function saveLoginInfo() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let isAdmin = false;
+            let isUser = false;
+
+            // đoạn này anh đang gán cứng có 2 tài khoản user và admin để check
+            if(username === "admin" && password === "admin"){
+                isAdmin = true;
+            }else if(username === "user" && password === "user"){
+                isUser = true;
+            }else{
+                alert("tài khoản hoặc mật khẩu không chính xác, mời nhập lại");
+                return;
+            }
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("isAdmin", isAdmin);
+            localStorage.setItem("isUser", isUser);
+            sessionStorage.setItem("isLoggedIn", true);
+
+            if (isAdmin) {
+                window.location.href = "admin.html";
+            }
+            if (isUser) {
+                window.location.href = "user.html";
+            }
+        }
+        // ban đầu lúc vào trang login, kiểm tra xem đã đăng nhập chưa  để chuyển trang
+        function init(){
+            let isUser = localStorage.getItem("isUser");
+            let isAdmin = localStorage.getItem("isAdmin");
+            let isLoggedIn = sessionStorage.getItem("isLoggedIn");
+
+            if (isLoggedIn && isAdmin) {
+                window.location.href = "admin.html";
+            }
+            if (isLoggedIn && isUser) {
+                window.location.href = "user.html";
+            }
+        }
+        init();
+    </script>
+</head>
+<body>
+<h1>Đăng nhập</h1>
+<label for="username">Tên đăng nhập:</label>
+<input type="text" id="username" name="username"><br>
+<label for="password">Mật khẩu:</label>
+<input type="password" id="password" name="password"><br>
+<button onclick="saveLoginInfo()">Đăng nhập</button>
+</body>
+</html>

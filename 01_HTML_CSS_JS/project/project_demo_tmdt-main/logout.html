@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng xuất</title>
+    <script>
+        // Xóa thông tin đăng nhập khỏi Local Storage và Session Storage
+        function logout() {
+            localStorage.removeItem("username");
+            localStorage.removeItem("isAdmin");
+            localStorage.removeItem("isUser");
+            sessionStorage.removeItem("isLoggedIn");
+
+            window.location.href = "login.html";
+        }
+        logout();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

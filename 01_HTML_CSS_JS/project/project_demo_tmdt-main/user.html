@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Trang người dùng</title>
+  <script>
+    window.onload = function() {
+      let isLoggedIn = sessionStorage.getItem("isLoggedIn");
+      let username = localStorage.getItem("username");
+      let isUser = localStorage.getItem("isUser");
+      let isAdmin = localStorage.getItem("isAdmin");
+
+      if (isLoggedIn && username && (isUser === "true" || isAdmin === "true")) {
+        document.getElementById("loginStatus").innerHTML = "Đã đăng nhập với tên đăng nhập: " + username;
+      } else {
+        window.location.href = "login.html";
+      }
+
+    };
+  </script>
+</head>
+<body>
+<h1>Trang người dùng</h1>
+<p id="loginStatus"></p>
+<a href="logout.html">Đăng xuất</a>
+<div id="adminLink">
+  <a href="admin.html">Trang quản trị</a>
+</div>
+</body>
+</html>
